@@ -1,0 +1,252 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body.dark {
+    --clr-bg: hsl(230, 17%, 14%);
+    --clr-bg-top: hsl(232, 19%, 15%);
+    --clr-bg-card: hsl(228, 28%, 20%);
+    --clr-text: hsl(228, 34%, 66%);
+    --clr-text-main: hsl(0, 0%, 100%);
+}
+
+body {
+    --clr-green: hsl(163, 72%, 41%);
+    --clr-red: hsl(356, 69%, 56%);
+    --clr-fb: hsl(208, 92%, 53%);
+    --clr-twitter: hsl(203, 89%, 53%);
+    --clr-yt: hsl(348, 97%, 39%);
+
+    --toggle-light: hsl(230, 22%, 74%);
+
+    /* Light theme */
+    --clr-bg: hsl(0, 0%, 100%);
+    --clr-bg-top: hsl(225, 100%, 98%);
+    --clr-bg-card: hsl(227, 47%, 96%);
+    --clr-text: hsl(228, 12%, 44%);
+    --clr-text-main: hsl(230, 17%, 14%);
+
+    font-size: 14px;
+
+    font-family: 'Inter', sans-serif;
+    color: var(--clr-text);
+    background-color: var(--clr-bg);
+}
+
+.container {
+    max-width: 1100px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 26px;
+    margin: 1rem 0 0;
+}
+
+.header h2 {
+    color: var(--clr-text-main);
+}
+
+.card__rating,
+.text {
+    font-weight: bold;
+}
+
+.text {
+    margin: .5rem 0 0;
+}
+
+.title {
+    margin-bottom: 1rem;
+}
+
+.toggle-container {
+    position: relative;
+    padding: 1rem 0;
+    border-top: 1px solid var(--clr-text);
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Switch */
+
+label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 52px;
+	height: 27px;
+    background: linear-gradient(to right, hsl(210, 78%, 56%) , hsl(146, 68%, 55%));
+	border-radius: 100px;
+	position: relative;
+}
+
+label:after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 20px;
+	height: 20px;
+	background: var(--clr-bg);
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+input:checked + label {
+    background: var(--toggle-light);
+}
+
+input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+label:active:after {
+	width: 45px;
+}
+
+.switch {
+    visibility: hidden;
+}
+
+/* Big cards */
+
+.card {
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: var(--clr-bg-card);
+    border-radius: .5rem;
+}
+
+.big__card1 {
+    border-top: 5px solid var(--clr-fb);
+}
+
+.big__card2 {
+    border-top: 5px solid var(--clr-twitter);
+}
+
+.big__card3 {
+    border-top: 5px solid transparent;
+    border-image: linear-gradient(to right, hsl(37, 97%, 70%) , hsl(329, 70%, 58%));
+    border-image-slice: 1;
+}
+
+.big__card4 {
+    border-top: 5px solid var(--clr-yt);
+}
+
+.card__top,
+.card__bottom,
+.s-card__rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.span-big,
+.span-small {
+    font-weight: bold;
+    display: block;
+    color: var(--clr-text-main);
+}
+
+.card__soc {
+    font-weight: bold;
+}
+
+.span-big {
+    font-size: 45px;
+    margin-top: .5rem;
+}
+
+.card__followers {
+    text-transform: uppercase;
+    color: var(--clr-text);
+    letter-spacing: .1rem;
+}
+
+.card__bottom {
+    margin-top: 1.5rem;
+}
+
+/* Small cards */
+
+.small__title {
+    margin-top: 3rem;
+}
+
+.s-card {
+    background-color: var(--clr-bg-card);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: .5rem;
+}
+
+.s-card__top,
+.s-card__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.s-card__bottom {
+    margin-top: 2rem;
+}
+
+.span-small {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+div .s-card__bottom,
+.card__bottom {
+    color: var(--clr-green);
+}
+
+.s1 {
+    color: var(--clr-red);
+}
+
+@media only screen and (min-width: 800px) {
+    .header1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .toggle-container {
+        border-top: none;
+        display: flex;
+    }
+
+    .big {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .card {
+        padding: 2rem 0;
+    }
+
+    .small {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .big {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+}
